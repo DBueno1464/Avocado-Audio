@@ -1,0 +1,17 @@
+#playbox {
+    width: 300px;
+    border: 5px solid black;
+}
+
+li {
+    list-style-type: none;
+}
+
+.slider-text {
+    margin-left: 10px;
+}
+.slider { 
+    margin: 5px;
+    width: 275px;
+    justify-content: center;
+}
