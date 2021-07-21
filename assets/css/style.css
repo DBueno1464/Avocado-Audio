@@ -1,0 +1,107 @@
+/* -------------------------------------------------- */
+/* CSS VARIABLE */
+/* -------------------------------------------------- */
+
+:root {
+  --icon-play: #54e346;
+  --icon-play-active: #43b638;
+
+  --icon-pause: #f98404;
+  --icon-pause-active: #fc5404;
+
+  --icon-stop: #ff3f00;
+  --icon-stop-active: #cf0000;
+
+  --icon-shuffle: #ac66cc;
+  --icon-shuffle-active: #a239ea;
+}
+
+body {
+  font-family: 'Suez One', serif;
+}
+
+.barVolume,
+.barProgress {
+  position: relative;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+button {
+  outline: none;
+}
+
+/* ---------- ICON -------------- */
+
+.icon-play,
+.icon-pause,
+.icon-stop,
+.icon-mute,
+.icon-unmute,
+.icon-shuffle {
+  font-size: 240%;
+  display: block;
+}
+
+/* ---------- ICON: PLAY & UNMUTE -------------- */
+.icon-play,
+.icon-unmute {
+  color: var(--icon-play);
+}
+
+.icon-play:active,
+.icon-play:hover,
+.icon-unmute:active,
+.icon-unmute:hover {
+  color: var(--icon-play-active);
+  transform: scale(1.2);
+  transition: 0.15s transform;
+  transition: 0.15s color;
+}
+
+/* ---------- ICON: PAUSE -------------- */
+.icon-pause {
+  color: var(--icon-pause);
+}
+
+.icon-pause:active,
+.icon-pause:hover {
+  color: var(--icon-pause-active);
+  transform: scale(1.2);
+  transition: 0.15s transform;
+  transition: 0.15s color;
+}
+
+/* ---------- ICON: STOP + MUTE -------------- */
+.icon-stop,
+.icon-mute {
+  color: var(--icon-stop);
+}
+
+.icon-stop:active,
+.icon-stop:hover,
+.icon-mute:active,
+.icon-mute:hover {
+  color: var(--icon-stop-active);
+  transform: scale(1.2);
+  transition: 0.15s transform;
+  transition: 0.15s color;
+}
+
+/* ---------- ICON: SHUFFLE -------------- */
+.icon-shuffle {
+  color: var(--icon-shuffle);
+}
+
+.icon-shuffle:active,
+.icon-shuffle:hover {
+  color: var(--icon-shuffle-active);
+  transform: scale(1.2);
+  transition: 0.15s transform;
+  transition: 0.15s color;
+}
+
+.hidden {
+  display: none;
+}

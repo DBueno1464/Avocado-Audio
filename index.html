@@ -1,12 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <title>Youtube Mixer</title>
+  </head>
+  <body>
+    <div class="section">
+      <div class="has-text-centered">
+        <p class="title">Youtube Mixer</p>
+      </div>
+    </div>
+
+    <div class="section py-4">
+      <div class="column is-12">
+        <div class="content">
+          <div class="box">
+            <!-- VIDEO #1 -->
+            <article class="columns featured">
+              <!-- Youtube Video -->
+              <div class="column is-6 is-flex">
+                <div id="player-1"></div>
+              </div>
+
+              <div class="column is-5 featured-content va pt-1">
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h1 class="title post-title mb-1 mt-0">Video #1</h1>
+                  <hr class="my-2" />
+                  <button class="button btnPlay"><ion-icon name="play-outline" class="icon-play"></ion-icon></button>
+                  <button class="button btnPause"><ion-icon name="pause-outline" class="icon-pause"></ion-icon></button>
+                  <button class="button btnStop"><ion-icon name="stop-outline" class="icon-stop"></ion-icon></button>
+                  <button class="button btnShuffle"><ion-icon name="shuffle-outline" class="icon-shuffle"></ion-icon></button>
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Volume</h2>
+                  <button class="button btnMute"><ion-icon name="volume-mute-outline" class="icon-mute"></ion-icon></button>
+                  <button class="button btnUnMute"><ion-icon name="volume-high-outline" class="icon-unmute"></ion-icon></button>
+                  <input class="barVolume mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Progress Bar | <span class="current-time" class="is-size-4">0:00</span> - <span class="duration" class="is-size-4">0:00</span></h2>
+                  <input class="barProgress mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Speed</h2>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.25" class="speed-1" /> 0.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.50" class="speed-1" /> 0.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.75" class="speed-1" /> 0.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1" class="speed-1" /> 1</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.25" class="speed-1" /> 1.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.50" class="speed-1" /> 1.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.75" class="speed-1" /> 1.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="2" class="speed-1" /> 2</label>
+                </div>
+                <!--------------------------------------------------------------->
+              </div>
+            </article>
+            <!-- VIDEO #2 -->
+            <article class="columns featured">
+              <!-- Youtube Video -->
+              <div class="column is-6 is-flex">
+                <div id="player-2"></div>
+              </div>
+
+              <div class="column is-5 featured-content va pt-1">
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h1 class="title post-title mb-1 mt-0">Video #2</h1>
+                  <hr class="my-2" />
+                  <button class="button btnPlay"><ion-icon name="play-outline" class="icon-play"></ion-icon></button>
+                  <button class="button btnPause"><ion-icon name="pause-outline" class="icon-pause"></ion-icon></button>
+                  <button class="button btnStop"><ion-icon name="stop-outline" class="icon-stop"></ion-icon></button>
+                  <button class="button btnShuffle"><ion-icon name="shuffle-outline" class="icon-shuffle"></ion-icon></button>
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Volume</h2>
+                  <button class="button btnMute"><ion-icon name="volume-mute-outline" class="icon-mute"></ion-icon></button>
+                  <button class="button btnUnMute"><ion-icon name="volume-high-outline" class="icon-unmute"></ion-icon></button>
+                  <input class="barVolume mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Progress Bar | <span class="current-time" class="is-size-4">0:00</span> - <span class="duration" class="is-size-4">0:00</span></h2>
+                  <input class="barProgress mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Speed</h2>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.25" class="speed-2" /> 0.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.50" class="speed-2" /> 0.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.75" class="speed-2" /> 0.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1" class="speed-2" /> 1</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.25" class="speed-2" /> 1.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.50" class="speed-2" /> 1.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.75" class="speed-2" /> 1.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="2" class="speed-2" /> 2</label>
+                </div>
+                <!--------------------------------------------------------------->
+              </div>
+            </article>
+            <!-- VIDEO #3 -->
+            <article class="columns featured">
+              <!-- Youtube Video -->
+              <div class="column is-6 is-flex">
+                <div id="player-3"></div>
+              </div>
+
+              <div class="column is-5 featured-content va pt-1">
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h1 class="title post-title mb-1 mt-0">Video #3</h1>
+                  <hr class="my-2" />
+                  <button class="button btnPlay"><ion-icon name="play-outline" class="icon-play"></ion-icon></button>
+                  <button class="button btnPause"><ion-icon name="pause-outline" class="icon-pause"></ion-icon></button>
+                  <button class="button btnStop"><ion-icon name="stop-outline" class="icon-stop"></ion-icon></button>
+                  <button class="button btnShuffle"><ion-icon name="shuffle-outline" class="icon-shuffle"></ion-icon></button>
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Volume</h2>
+                  <button class="button btnMute"><ion-icon name="volume-mute-outline" class="icon-mute"></ion-icon></button>
+                  <button class="button btnUnMute"><ion-icon name="volume-high-outline" class="icon-unmute"></ion-icon></button>
+                  <input class="barVolume mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Progress Bar | <span class="current-time" class="is-size-4">0:00</span> - <span class="duration" class="is-size-4">0:00</span></h2>
+                  <input class="barProgress mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Speed</h2>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.25" class="speed-3" /> 0.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.50" class="speed-3" /> 0.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.75" class="speed-3" /> 0.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1" class="speed-3" /> 1</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.25" class="speed-3" /> 1.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.50" class="speed-3" /> 1.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.75" class="speed-3" /> 1.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="2" class="speed-3" /> 2</label>
+                </div>
+                <!--------------------------------------------------------------->
+              </div>
+            </article>
+            <!-- VIDEO #4 -->
+            <article class="columns featured">
+              <!-- Youtube Video -->
+              <div class="column is-6 is-flex">
+                <div id="player-4"></div>
+              </div>
+
+              <div class="column is-5 featured-content va pt-1">
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h1 class="title post-title mb-1 mt-0">Video #4</h1>
+                  <hr class="my-2" />
+                  <button class="button btnPlay"><ion-icon name="play-outline" class="icon-play"></ion-icon></button>
+                  <button class="button btnPause"><ion-icon name="pause-outline" class="icon-pause"></ion-icon></button>
+                  <button class="button btnStop"><ion-icon name="stop-outline" class="icon-stop"></ion-icon></button>
+                  <button class="button btnShuffle"><ion-icon name="shuffle-outline" class="icon-shuffle"></ion-icon></button>
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Volume</h2>
+                  <button class="button btnMute"><ion-icon name="volume-mute-outline" class="icon-mute"></ion-icon></button>
+                  <button class="button btnUnMute"><ion-icon name="volume-high-outline" class="icon-unmute"></ion-icon></button>
+                  <input class="barVolume mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Progress Bar | <span class="current-time" class="is-size-4">0:00</span> - <span class="duration" class="is-size-4">0:00</span></h2>
+                  <input class="barProgress mt-2" type="range" value="0" />
+                </div>
+                <!--------------------------------------------------------------->
+                <hr class="my-2" />
+                <!--------------------------------------------------------------->
+                <div>
+                  <h2 class="title post-title mb-1 is-size-4">Speed</h2>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.25" class="speed-4" /> 0.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.50" class="speed-4" /> 0.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="0.75" class="speed-4" /> 0.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1" class="speed-4" /> 1</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.25" class="speed-4" /> 1.25</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.50" class="speed-4" /> 1.50</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="1.75" class="speed-4" /> 1.75</label>
+                  <label class="radio"><input type="radio" name="rsvp" value="2" class="speed-4" /> 2</label>
+                </div>
+                <!--------------------------------------------------------------->
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--------------------------------------------------------------->
+    <!-- SCRIPTS -->
+    <!--------------------------------------------------------------->
+    <!-- This code loads the iFrame Player API code asynchronously.-->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.1/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.1/dist/ionicons/ionicons.js"></script>
+    <script src="./assets/js/playlist.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
