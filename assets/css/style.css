@@ -32,6 +32,26 @@ button {
   outline: none;
 }
 
+/* Landing Page */
+
+.hero.is-info {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/audio2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5;
+}
+
+.btnLanding {
+  background-color: black;
+  color: yellowgreen;
+}
+
 /* ---------- ICON -------------- */
 
 .icon-play,
