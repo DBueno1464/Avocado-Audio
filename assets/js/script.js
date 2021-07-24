@@ -25,6 +25,21 @@ var speed_4 = document.querySelectorAll('.speed-4');
 var localVideos = JSON.parse(localStorage.getItem('videoid'));
 
 // -------------------------------------------------------------
+// LANDING PAGE EVENT LISTENER
+// -------------------------------------------------------------
+
+var btnLanding = document.querySelector('.btnLanding');
+var mixerLanding = document.querySelector('.mixer-landing');
+var mixerHeader = document.querySelector('.mixer-header');
+var mixerControls = document.querySelector('.mixer-controls');
+
+btnLanding.addEventListener('click', function () {
+  mixerLanding.classList.add('hidden');
+  mixerHeader.classList.remove('hidden');
+  mixerControls.classList.remove('hidden');
+});
+
+// -------------------------------------------------------------
 // YOUTUBE API PLAYER
 // -------------------------------------------------------------
 
