@@ -10,17 +10,19 @@ var btnStop = document.querySelectorAll('.btnStop');
 var btnMute = document.querySelectorAll('.btnMute');
 var btnUnMute = document.querySelectorAll('.btnUnMute');
 var btnShuffle = document.querySelectorAll('.btnShuffle');
-var speedLabel = document.querySelectorAll('label input');
 var barVolume = document.querySelectorAll('.barVolume');
 var barProgress = document.querySelectorAll('.barProgress');
 var currentTime = document.querySelectorAll('.current-time');
 var durationTime = document.querySelectorAll('.duration');
 
-// RANDOM PLAYLIST
-var randomVideo_1 = playlist_1[Math.floor(Math.random() * playlist_1.length)];
-var randomVideo_2 = playlist_2[Math.floor(Math.random() * playlist_2.length)];
-var randomVideo_3 = playlist_3[Math.floor(Math.random() * playlist_3.length)];
-var randomVideo_4 = playlist_4[Math.floor(Math.random() * playlist_4.length)];
+var speedLabel = document.querySelectorAll('label input');
+var speed_1 = document.querySelectorAll('.speed-1');
+var speed_2 = document.querySelectorAll('.speed-2');
+var speed_3 = document.querySelectorAll('.speed-3');
+var speed_4 = document.querySelectorAll('.speed-4');
+
+// Local Storage Random Playlist
+var localVideos = JSON.parse(localStorage.getItem('videoid'));
 
 // -------------------------------------------------------------
 // YOUTUBE API PLAYER
@@ -29,14 +31,13 @@ var randomVideo_4 = playlist_4[Math.floor(Math.random() * playlist_4.length)];
 var player1,
   player2,
   player3,
-  player4,
-  time_update_interval = 0;
+  player4 = 0;
 
 function onYouTubeIframeAPIReady() {
   player1 = new YT.Player('player-1', {
     height: '390',
     width: '640',
-    videoId: randomVideo_1,
+    videoId: localVideos[0],
     events: {
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange,
@@ -45,7 +46,7 @@ function onYouTubeIframeAPIReady() {
   player2 = new YT.Player('player-2', {
     height: '390',
     width: '640',
-    videoId: randomVideo_2,
+    videoId: localVideos[1],
     events: {
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange,
@@ -54,7 +55,7 @@ function onYouTubeIframeAPIReady() {
   player3 = new YT.Player('player-3', {
     height: '390',
     width: '640',
-    videoId: randomVideo_3,
+    videoId: localVideos[2],
     events: {
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange,
@@ -63,7 +64,7 @@ function onYouTubeIframeAPIReady() {
   player4 = new YT.Player('player-4', {
     height: '390',
     width: '640',
-    videoId: randomVideo_4,
+    videoId: localVideos[3],
     events: {
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange,
@@ -72,7 +73,18 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady() {
-  // Update page after player is ready
+  // Set radio buttons checked = 1
+  speed_1[3].checked = true;
+  speed_2[3].checked = true;
+  speed_3[3].checked = true;
+  speed_4[3].checked = true;
+
+  btnUnMute[0].classList.add('is-focused');
+  btnUnMute[1].classList.add('is-focused');
+  btnUnMute[2].classList.add('is-focused');
+  btnUnMute[3].classList.add('is-focused');
+
+  // Set intervals
   setIntervals();
 }
 
@@ -80,22 +92,6 @@ function onPlayerStateChange(event) {
   // Get current state
   // Video has ended
   switch (event.data) {
-    // case YT.PlayerState.ENDED:
-    //   updateAll() // set status for state, ...
-    //   clearIntervals() // clear all intervals
-    //   break;
-    // case YT.PlayerState.PLAYING:
-    //   updateAll() // set status for state, ...
-    //   setIntervals() // set intervals for ...
-    //   break;
-    // case YT.PlayerState.PAUSED:
-    //   updateAll() // set status for state, ...
-    //   clearIntervals() // clear all intervals
-    //   break;
-    // case YT.PlayerState.BUFFERING:
-    //   updateAll() // set status for state, ...
-    //   clearIntervals() // clear all intervals
-    //   break;
     case YT.PlayerState.CUED:
       clearIntervals(); // clear all intervals
       break;
@@ -125,6 +121,12 @@ function update(node) {
       barProgress[1].value = player2.getVideoLoadedFraction() * 100;
       barProgress[2].value = player3.getVideoLoadedFraction() * 100;
       barProgress[3].value = player4.getVideoLoadedFraction() * 100;
+      break;
+    case 'volume':
+      barVolume[0].value = player1.getVolume();
+      barVolume[1].value = player2.getVolume();
+      barVolume[2].value = player3.getVolume();
+      barVolume[3].value = player4.getVolume();
       break;
   }
 }
@@ -184,6 +186,8 @@ for (let i = 0; i < btnMute.length; i++) {
     var playerCat = String(`player${i + 1}`);
     var fnPlayer = window[playerCat];
 
+    btnMute[i].classList.toggle('is-focused');
+    btnUnMute[i].classList.toggle('is-focused');
     fnPlayer.mute();
   });
 }
@@ -197,26 +201,9 @@ for (let i = 0; i < btnUnMute.length; i++) {
     var playerCat = String(`player${i + 1}`);
     var fnPlayer = window[playerCat];
 
+    btnMute[i].classList.toggle('is-focused');
+    btnUnMute[i].classList.toggle('is-focused');
     fnPlayer.unMute();
-  });
-}
-// -------------------------------------------------------------
-// SHUFFLE BAR
-// -------------------------------------------------------------
-
-for (let i = 0; i < btnShuffle.length; i++) {
-  btnShuffle[i].addEventListener('click', () => {
-    var shuffleCat = String(`playlist_${i + 1}`);
-    var fnList = window[shuffleCat];
-    var shuffleVideo = fnList[Math.floor(Math.random() * fnList.length)];
-
-    var playerCat = String(`player${i + 1}`);
-    var fnPlayer = window[playerCat];
-
-    fnPlayer.loadVideoById({
-      videoId: shuffleVideo,
-    });
-    fnPlayer.seekTo(0, true);
   });
 }
 
@@ -270,7 +257,7 @@ for (let i = 0; i < barProgress.length; i++) {
 }
 
 // -------------------------------------------------------------
-// PROGRESS BAR
+// SETINTERVALS
 // -------------------------------------------------------------
 
 // Controls interval handlers to update page contens
@@ -286,8 +273,15 @@ function setIntervals() {
   }, 500);
   activeIntervals[2] = setInterval(function () {
     update('percentLoaded');
-  }, 500);
+  }, 1000);
+  activeIntervals[3] = setInterval(function () {
+    update('volume');
+  }, 1000);
 }
+
+// -------------------------------------------------------------
+// CLEARINTERVALS
+// -------------------------------------------------------------
 
 function clearIntervals() {
   // Clears existing intervals to actively update page content
